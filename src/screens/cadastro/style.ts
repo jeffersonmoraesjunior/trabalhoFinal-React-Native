@@ -1,35 +1,47 @@
 import { Platform, StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    login: {
-        backgroundColor: "#f2c84b",
-        height: "100%",
-        alignItems: 'center',
-        gap: 20,
-        justifyContent: 'center'
-    },
-    logo: {
-        width: '75%',
-        height: '20%'
-        
-    },
-    titulo: {
-        color: 'white',
-        fontSize: 23,
-        fontWeight: 'bold'
-    },
-    label:{
-        color: 'black',
-        fontSize: 15,
-        fontWeight: '500'
-    },
-    input:{
-        backgroundColor: '#FFF',
-        color: 'black',
-        fontSize: 18,
-        padding: Platform.OS === 'ios' ? 15 : 10,
-       
-        borderRadius: 7,
-        width: 270
-    }
-})
+   login: {
+      flex: 1,
+      backgroundColor: '#F2C84B',
+      alignItems: 'center',
+      paddingTop: 50,
+      justifyContent: 'center'
+   },
+   logo: {
+      width: '100%',
+      height: 250,
+      resizeMode: 'contain',
+      marginBottom: 10
+   },
+   titulo: {
+      color: 'white',
+      fontSize: 23,
+      fontWeight: 'bold'
+   },
+   label: {
+      color: 'black',
+      fontSize: 15,
+      fontWeight: '500'
+   },
+   input: {
+      backgroundColor: '#FFF',
+      fontSize: 18,
+      padding: Platform.OS === 'ios' ? 15 : 10,
+      borderRadius: 20,
+      marginBottom: 12,
+      color: '#DCDCDC',
+      width: '100%',
+      paddingHorizontal: 150
+   },
+   cadastrar: {
+      backgroundColor: '#FFF',
+      fontSize: 18,
+      borderRadius: 20,
+      marginBottom: 15,
+      color: '#DCDCDC',
+      width: '100%',
+      padding: Platform.OS === 'ios' ? 15 : 10,
+      paddingHorizontal: 110
+   }
+});
