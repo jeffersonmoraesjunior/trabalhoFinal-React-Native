@@ -1,51 +1,69 @@
-import React from 'react';
-import { View, Text, Image, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, TextInput } from 'react-native';
 import { styles } from './style';
 import Logo from '../../assets/logo.png';
 import { Button } from '../../components/ButtonSubmit';
+import { useAuth } from '../../components/Authenticate/AuthContext';
+import { registerUser } from '../../services/api';
 
 export default function Cadastro() {
-   return (
-      <View style={styles.login}>
-         <Image source={Logo} style={styles.logo} />
+  const { setIsLogged, setUserLogged } = useAuth();
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
 
-         <View>
-            <TextInput
-               style={styles.input}
-               onChangeText={() => {}}
-               placeholder="Nome"
-               keyboardType="email-address"
-            />
-         </View>
+  const handleRegister = async () => {
+    const novoUsuario = await registerUser(nome, email, senha);
 
-         <View>
-            <TextInput
-               style={styles.input}
-               onChangeText={() => {}}
-               placeholder="Email"
-               keyboardType="email-address"
-            />
-         </View>
+    if (novoUsuario) {
+      setIsLogged(true);
+      setUserLogged(novoUsuario);
+    }
+  };
 
-         <View>
-            <TextInput
-               style={styles.input}
-               onChangeText={() => {}}
-               placeholder="Senha"
-               keyboardType="visible-password"
-            />
-         </View>
+  return (
+    <View style={styles.login}>
+      <Image source={Logo} style={styles.logo} />
 
-         <View>
-            <TextInput
-               style={styles.cadastrar}
-               onChangeText={() => {}}
-               placeholder="Confirmar senha"
-               keyboardType="visible-password"
-            />
-         </View>
-
-         <Button title="Cadastrar"></Button>
+      <View>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setNome(text)}
+          placeholder="Nome"
+          keyboardType="default"
+        />
       </View>
-   );
+
+      <View>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setEmail(text)}
+          placeholder="Email"
+          keyboardType="email-address"
+        />
+      </View>
+
+      <View>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setSenha(text)}
+          placeholder="Senha"
+          keyboardType="visible-password"
+        />
+      </View>
+
+      <View>
+        <TextInput
+          style={styles.cadastrar}
+          onChangeText={(text) => setConfirmarSenha(text)}
+          placeholder="Confirmar senha"
+          keyboardType="visible-password"
+        />
+      </View>
+
+      <Button title="Cadastrar" onPress={handleRegister}></Button>
+    </View>
+  );
 }
+
