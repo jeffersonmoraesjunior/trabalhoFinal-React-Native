@@ -1,10 +1,19 @@
 import { createContext, useContext, useMemo, useState, ReactNode } from "react";
+import {loginUser, getUserDetails } from '../../services/api';
+
+
+interface UserDetail {
+  id: number;
+  nome: string;
+  email: string;
+}
+
 
 interface ContextoAutenticacao {
   isLogged: boolean;
   setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
-  userLogged: any; 
-  setUserLogged: React.Dispatch<React.SetStateAction<any>>; 
+  userLogged: UserDetail | null; 
+  setUserLogged: React.Dispatch<React.SetStateAction<UserDetail | null>>; 
 }
 
 const AuthContext = createContext<ContextoAutenticacao | undefined>(undefined);
@@ -15,11 +24,27 @@ interface PropsAutenticacao {
 
 export function AuthProvider({ children }: PropsAutenticacao) {
   const [isLogged, setIsLogged] = useState(false);
-  const [userLogged, setUserLogged] = useState<any | null>(null); 
+  const [userLogged, setUserLogged] = useState<UserDetail | null>(null); 
+
+
+  const login = async (email: string, senha: string) => {
+    try{
+    const usuario = await loginUser(email, senha);
+
+    if (usuario) {
+        const userDetails = await getUserDetails(usuario.id);
+        setUserLogged(userDetails);
+        setIsLogged(true);
+    }
+  } catch (erro) {
+    console.error('Erro durante a autenticação:', erro);
+    throw erro;
+  }
+  };
 
   const contextoValor = useMemo(() => {
-    return { isLogged, setIsLogged, userLogged, setUserLogged };
-  }, [isLogged, setIsLogged, userLogged, setUserLogged]);
+    return { isLogged, setIsLogged, userLogged, setUserLogged, login };
+  }, [isLogged, setIsLogged, userLogged, setUserLogged, login]);
 
   return (
     <AuthContext.Provider value={contextoValor}>

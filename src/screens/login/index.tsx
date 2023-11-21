@@ -19,12 +19,16 @@ function Login() {
   const [senha, setSenha] = useState('');
 
   const handleLogin = async () => {
+    console.log('Iniciando o login');
     const usuario = await loginUser(email, senha);
 
     if (!email || !senha) {
       return;
     }
-  }
+
+    console.log('Usuário logado:', usuario);
+    navigation.navigate('LivroReceitas');
+  };
 
   const handleRegister = () => {
     navigation.navigate('Cadastro');

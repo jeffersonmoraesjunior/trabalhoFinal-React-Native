@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { AuthProvider } from '../Authenticate/AuthContext';
 import Login from '../../screens/Login/index';
 import Cadastro from '../../screens/Cadastro/index';
+import LivroReceitas from '../../screens/LivroReceitas/index';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ const NavigatorLogin = () => {
           }}>
           <Stack.Screen name=" " component={Login} />
           <Stack.Screen name="Cadastro" component={Cadastro} />
+           <Stack.Screen name="LivroReceitas" component={LivroReceitas} />
         </Stack.Navigator>
       </AuthProvider>
     </NavigationContainer>

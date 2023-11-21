@@ -7,10 +7,10 @@ import { AuthProvider } from './src/components/Authenticate/AuthContext'
 export default function App() {
   return (
     <AuthProvider>
-      <View style={styles.container}>
+     
         <NavigatorLogin />
         <StatusBar style="auto" />
-      </View>
+    
     </AuthProvider>
   );
 }
