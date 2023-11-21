@@ -4,11 +4,20 @@ import { styles } from './styles';
 import { ReceitaItem, ReceitasItemListProps } from '../../components/ReceitasItem';
 import { getReceitaItemList } from '../../services/Api/apiReceitas';
 import { StatusBar } from 'expo-status-bar';
+import { auth } from '../../services/firebase/firebase.config';
+
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 export const Receitas = ({ navigation }) => {
    const [receitaItemList, setReceitaItemList] = useState<ReceitasItemListProps[]>([]);
    const [isLoading, setIsLoading] = useState<boolean>(true);
 
+   const currentUser = auth.currentUser;
+   if (currentUser != null) {
+   } else {
+      alert('É necessário estar logado para utilizar o aplicativo');
+      navigation.goBack();
+   }
    //cada pagina recarregada no mobile chama o useEffect
    useEffect(() => {
       listReceitaItemList();

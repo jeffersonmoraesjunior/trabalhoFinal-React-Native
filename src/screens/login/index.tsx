@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Alert } from 'react-native';
 import {
    KeyboardAvoidingView,
    Platform,
@@ -13,45 +12,40 @@ import {
 import { styles } from './styles';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { loginUser } from '../../services/Api/api';
+import { auth } from '../../services/firebase/firebase.config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function Login() {
+   const [userMail, setUserMail] = useState('');
+   const [userPass, setUserPass] = useState('');
    const navigation = useNavigation<NavigationProp<any>>();
-   const [email, setEmail] = useState('');
-   const [senha, setSenha] = useState('');
 
-  const handleLogin = async () => {
-    console.log('Iniciando o login');
-    const usuario = await loginUser(email, senha);
+   function userLogin() {
+      signInWithEmailAndPassword(auth, userMail, userPass)
+         .then((userCredential) => {
+            const user = userCredential.user;
+            alert('Login Efetuado...');
+            console.log(user);
+            navigation.navigate('Receitas');
+         })
+         .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+         });
+   }
 
-    if (!email || !senha) {
-      return;
-    }
-
-    console.log('Usuário logado:', usuario);
-    navigation.navigate('Receitas');
-  };
-
-      try {
-         const usuario = await loginUser(email, senha);
-
-         if (usuario) {
-            // Verifique se o usuário é válido
-            navigation.navigate('Receitas'); // Navegue para a tela de Receitas
-         } else {
-            Alert.alert('Erro', 'Email ou senha inválidos.');
-         }
-      } catch (erro) {
-         console.error('Erro durante o login:', erro);
-         Alert.alert('Erro', 'Houve um problema durante o login. Por favor, tente novamente.');
-      }
+   const handleForgot = () => {
+      navigation.navigate('EsqueciSenha');
    };
-
    const handleRegister = () => {
       navigation.navigate('Cadastro');
    };
 
+  
+
    return (
-      <View style={styles.container}>
+      <View style={styles.container}>         
          <Image source={require('../../assets/logo.png')} style={styles.logo} />
          <KeyboardAvoidingView enabled={Platform.OS === 'ios'} behavior="padding">
             <ScrollView keyboardShouldPersistTaps="always">
@@ -59,21 +53,21 @@ function Login() {
                   <TextInput
                      style={styles.input}
                      placeholder="E-mail"
-                     onChangeText={(text) => setEmail(text)}
+                     onChangeText={(text) => setUserMail(text)}
                      keyboardType="email-address"
                   />
 
                   <TextInput
                      style={styles.input}
                      placeholder="Senha"
-                     onChangeText={(text) => setSenha(text)}
+                     onChangeText={(text) => setUserPass(text)}
                      secureTextEntry
                   />
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={handleForgot}>
                      <Text style={styles.helpText}>Esqueci minha senha</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+                  <TouchableOpacity style={styles.loginButton} onPress={userLogin}>
                      <View style={styles.buttonEntrar}>
                         <Text style={styles.loginText}>Entrar</Text>
                      </View>

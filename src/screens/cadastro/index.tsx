@@ -3,24 +3,48 @@ import { View, Image, TextInput } from 'react-native';
 import { styles } from './style';
 import Logo from '../../assets/logo.png';
 import { Button } from '../../components/ButtonSubmit';
-import { useAuth } from '../../components/Authenticate/AuthContext';
-import { registerUser } from '../../services/Api/api';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../services/firebase/firebase.config';
+import Login from '../Login/index';
 
 export default function Cadastro() {
-   const { setIsLogged, setUserLogged } = useAuth();
    const [nome, setNome] = useState('');
    const [email, setEmail] = useState('');
    const [senha, setSenha] = useState('');
    const [confirmarSenha, setConfirmarSenha] = useState('');
+   const navigation = useNavigation<NavigationProp<any>>();
 
    const handleRegister = async () => {
-      const novoUsuario = await registerUser(nome, email, senha);
-
-      if (novoUsuario) {
-         setIsLogged(true);
-         setUserLogged(novoUsuario);
+      if (nome === '' || email === '' || senha === '' || confirmarSenha === '') {
+         alert('Todos os campos devem ser preenchidos!');
+         return;
+      }
+      if (senha !== confirmarSenha) {
+         alert('A Senha e Confirmar senha não são iguais!');
+      } else {
+         createUserWithEmailAndPassword(auth, email, senha)
+            .then((UserCredential) => {
+               const user = UserCredential.user;
+               alert('O usuario ' + email + ' foi criado. Faça o login.');
+               navigation.navigate(' ');
+            })
+            .catch((error) => {
+               const errorMessage = error.message;
+               alert(errorMessage);
+               navigation.navigate(' ');
+            });
       }
    };
+
+   // const handleRegister = async () => {
+   //    const novoUsuario = await registerUser(nome, email, senha);
+
+   //    if (novoUsuario) {
+   //       setIsLogged(true);
+   //       setUserLogged(novoUsuario);
+   //    }
+   // };
 
    return (
       <View style={styles.login}>
@@ -41,6 +65,7 @@ export default function Cadastro() {
                onChangeText={(text) => setEmail(text)}
                placeholder="Email"
                keyboardType="email-address"
+               autoComplete="email"
             />
          </View>
 

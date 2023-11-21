@@ -6,6 +6,7 @@ import Login from '../../screens/Login';
 import Cadastro from '../../screens/Cadastro/index';
 import { Receitas } from '../../screens/Receitas/';
 import { ReceitaDetalhes } from '../../screens/ReceitaDetalhes/';
+import { EsqueciSenha } from '../../screens/EsqueciSenha';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,7 @@ const NavigatorLogin = () => {
                   options={{ headerShown: false }}
                />
                <Stack.Screen name="ReceitaDetalhes" component={ReceitaDetalhes} />
+               <Stack.Screen name="EsqueciSenha" component={EsqueciSenha} />
             </Stack.Navigator>
          </AuthProvider>
       </NavigationContainer>
