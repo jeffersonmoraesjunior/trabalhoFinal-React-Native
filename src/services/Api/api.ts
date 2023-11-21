@@ -8,7 +8,7 @@ interface Usuario {
 
 export const registerUser = async (nome: string, email: string, senha: string): Promise<Usuario | null> => {
   try {
-    const resposta = await fetch(`${API_BASE_URL}`, {
+    const response = await fetch(`${API_BASE_URL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -20,11 +20,13 @@ export const registerUser = async (nome: string, email: string, senha: string): 
       }),
     });
 
-    if (resposta.ok) {
-      const novoUsuario = await resposta.json();
+    if (response.ok) {
+      const novoUsuario = await response.json();
       return novoUsuario;
     } else {
-      console.error('Falha no cadastro:', resposta.statusText);
+      console.error('Falha no cadastro:', response.statusText);
+      const errorData = await response.json();
+      console.error('Detalhes do erro:', errorData);
       return null;
    }
  } catch (erro) {
@@ -35,7 +37,7 @@ export const registerUser = async (nome: string, email: string, senha: string): 
 
 export const loginUser = async (email: string, senha: string): Promise<Usuario | null> => {
  try {
-   const resposta = await fetch(`${API_BASE_URL}/login`, {
+   const response = await fetch(`${API_BASE_URL}/login`, {
      method: 'POST',
      headers: {
        'Content-Type': 'application/json',
@@ -46,15 +48,39 @@ export const loginUser = async (email: string, senha: string): Promise<Usuario |
      }),
    });
 
-   if (resposta.ok) {
-     const usuario = await resposta.json();
+   if (response.ok) {
+     const usuario = await response.json();
      return usuario;
    } else {
-     console.error('Falha no login:', resposta.statusText);
+     console.error('Falha no login:', response.statusText);
+     const errorData = await response.json(); 
+    console.error('Detalhes do erro:', errorData);
      return null;
    }
  } catch (erro) {
    console.error('Erro durante o login:', erro);
    return null;
  }
+};
+
+export const getUserDetails = async (userId: number): Promise<Usuario | null> => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/${userId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      const userDetails = await response.json();
+      return userDetails;
+    } else {
+      console.error('Erro ao obter detalhes do usuário:', response.statusText);
+      return null;
+    }
+  } catch (erro) {
+    console.error('Erro durante a obtenção de detalhes do usuário:', erro);
+    return null;
+  }
 };

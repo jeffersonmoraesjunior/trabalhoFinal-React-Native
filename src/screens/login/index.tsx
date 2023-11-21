@@ -19,16 +19,17 @@ function Login() {
    const [email, setEmail] = useState('');
    const [senha, setSenha] = useState('');
 
-   const handleLogin = async () => {
-      if (!email) {
-         Alert.alert('Erro', 'Por favor, insira um email válido.');
-         return;
-      }
+  const handleLogin = async () => {
+    console.log('Iniciando o login');
+    const usuario = await loginUser(email, senha);
 
-      if (!senha) {
-         Alert.alert('Erro', 'Por favor, insira uma senha.');
-         return;
-      }
+    if (!email || !senha) {
+      return;
+    }
+
+    console.log('Usuário logado:', usuario);
+    navigation.navigate('Receitas');
+  };
 
       try {
          const usuario = await loginUser(email, senha);
