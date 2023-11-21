@@ -8,6 +8,13 @@ export const styles = StyleSheet.create({
       paddingTop: 50,
       justifyContent: 'center'
    },
+
+   form: {
+      alignItems: 'center',
+      width: '75%',
+   
+   },
+
    logo: {
       width: '100%',
       height: 250,
@@ -28,20 +35,10 @@ export const styles = StyleSheet.create({
       backgroundColor: '#FFF',
       fontSize: 18,
       padding: Platform.OS === 'ios' ? 15 : 10,
-      borderRadius: 20,
+      borderRadius: 18,
       marginBottom: 12,
-      color: '#DCDCDC',
+      color: 'black',
       width: '100%',
-      paddingHorizontal: 150
-   },
-   cadastrar: {
-      backgroundColor: '#FFF',
-      fontSize: 18,
-      borderRadius: 20,
-      marginBottom: 15,
-      color: '#DCDCDC',
-      width: '100%',
-      padding: Platform.OS === 'ios' ? 15 : 10,
-      paddingHorizontal: 110
+   
    }
 });

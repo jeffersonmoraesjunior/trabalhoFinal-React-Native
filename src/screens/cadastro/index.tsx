@@ -6,7 +6,7 @@ import { Button } from '../../components/ButtonSubmit';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase/firebase.config';
-import Login from '../Login/index';
+import Login from '../login/index';
 
 export default function Cadastro() {
    const [nome, setNome] = useState('');
@@ -50,16 +50,16 @@ export default function Cadastro() {
       <View style={styles.login}>
          <Image source={Logo} style={styles.logo} />
 
-         <View>
+         <View style={styles.form}>
             <TextInput
                style={styles.input}
                onChangeText={(text) => setNome(text)}
                placeholder="Nome"
                keyboardType="default"
             />
-         </View>
+      
 
-         <View>
+        
             <TextInput
                style={styles.input}
                onChangeText={(text) => setEmail(text)}
@@ -67,27 +67,30 @@ export default function Cadastro() {
                keyboardType="email-address"
                autoComplete="email"
             />
-         </View>
+       
 
-         <View>
+       
             <TextInput
                style={styles.input}
                onChangeText={(text) => setSenha(text)}
                placeholder="Senha"
                keyboardType="visible-password"
+               secureTextEntry
             />
-         </View>
+       
 
-         <View>
+   
             <TextInput
-               style={styles.cadastrar}
+               style={styles.input}
                onChangeText={(text) => setConfirmarSenha(text)}
                placeholder="Confirmar senha"
                keyboardType="visible-password"
+               secureTextEntry
             />
-         </View>
+         
 
          <Button title="Cadastrar" onPress={handleRegister}></Button>
+         </View>
       </View>
    );
 }

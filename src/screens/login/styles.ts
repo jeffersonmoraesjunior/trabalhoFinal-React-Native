@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
    container: {
@@ -10,8 +10,8 @@ export const styles = StyleSheet.create({
    },
 
    form: {
-      paddingHorizontal: 20,
-      width: 400
+    
+      width: '100%'
    },
 
    logo: {
@@ -23,13 +23,14 @@ export const styles = StyleSheet.create({
    },
 
    input: {
-      backgroundColor: 'white',
-      borderRadius: 20,
-      padding: 15,
+      backgroundColor: '#FFF',
+      fontSize: 18,
+      padding: Platform.OS === 'ios' ? 15 : 10,
+      borderRadius: 18,
       marginBottom: 12,
-      color: '#DCDCDC',
-      fontSize: 16,
-      width: '100%'
+      color: 'black',
+      width: '100%',
+   
    },
 
    helpText: {

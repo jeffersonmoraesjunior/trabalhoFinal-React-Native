@@ -2,9 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { AuthProvider } from '../Authenticate/AuthContext';
-import Login from '../../screens/Login';
-import Cadastro from '../../screens/Cadastro/index';
-import { Receitas } from '../../screens/Receitas/';
+import Login from '../../screens/login';
+import Cadastro from '../../screens/cadastro/index';
+import { Receitas } from '../../screens/receitas/';
 import { ReceitaDetalhes } from '../../screens/ReceitaDetalhes/';
 import { EsqueciSenha } from '../../screens/EsqueciSenha';
 
