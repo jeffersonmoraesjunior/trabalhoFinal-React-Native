@@ -4,39 +4,36 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
    container: {
       flex: 1,
-      padding: 16
+      backgroundColor: '#F5FCFF'
    },
    title: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginBottom: 16
+      fontSize: 20,
+      textAlign: 'center',
+      margin: 10
+   },
+   image: {
+      width: '100%',
+      height: 200
    },
    itemContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: 8,
-      padding: 16,
-      borderRadius: 8,
-      backgroundColor: '#f0f0f0'
+      flex: 1,
+      margin: 10,
+      justifyContent: 'space-between',
+      borderBottomColor: '#ccc',
+      borderBottomWidth: 1,
+      paddingBottom: 10
    },
    itemTitle: {
-      flex: 1,
-      fontSize: 16,
-      fontWeight: 'bold'
-   },
-   itemImage: {
-      width: 50,
-      height: 50,
-      borderRadius: 25
+      fontSize: 18,
+      marginBottom: 5
    },
    removeButton: {
-      marginTop: 8,
-      padding: 8,
-      backgroundColor: '#ff1900',
-      alignItems: 'center'
+      alignSelf: 'flex-end',
+      padding: 10,
+      backgroundColor: 'red',
+      borderRadius: 5
    },
    removeButtonText: {
-      color: '#ffffff',
-      fontSize: 16
+      color: 'white'
    }
 });

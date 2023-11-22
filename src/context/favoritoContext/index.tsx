@@ -33,21 +33,23 @@ export const FavoritoProvide = ({ children }: ContextProps) => {
       });
    }, []);
 
+   //asyncStorage 
    const storeData = async (value: ReceitaItemProps[]) => {
       try {
          const jsonValue = JSON.stringify(value);
          await AsyncStorage.setItem('jefferson-junior', jsonValue);
       } catch (err) {
-         // TODO: error handling
+         // colocar erro aqui 
       }
    };
-
+   
+   //asyncStorage 
    const getData = async () => {
       try {
          const jsonValue = await AsyncStorage.getItem('jefferson-junior');
          return jsonValue != null ? JSON.parse(jsonValue) : null;
       } catch (err) {
-         // error reading value
+         // colocar erro aqui 
       }
    };
 

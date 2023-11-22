@@ -42,10 +42,8 @@ function Login() {
       navigation.navigate('Cadastro');
    };
 
-  
-
    return (
-      <View style={styles.container}>         
+      <View style={styles.container}>
          <Image source={require('../../assets/logo.png')} style={styles.logo} />
          <KeyboardAvoidingView enabled={Platform.OS === 'ios'} behavior="padding">
             <ScrollView keyboardShouldPersistTaps="always">

@@ -5,6 +5,7 @@ import { ReceitaItem, ReceitasItemListProps } from '../../components/receitasIte
 import { getReceitaItemList } from '../../services/api/apiReceitas';
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../../services/firebase/firebase.config';
+import { signOut } from 'firebase/auth';
 
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
@@ -35,6 +36,13 @@ export const Receitas = ({ navigation }) => {
          .finally(() => {
             setIsLoading(false);
          });
+   }
+
+   function logout() {
+      signOut(auth).then(() => {
+         alert('Até a próxima!');
+         navigation.navigate(' ');
+      });
    }
 
    return (

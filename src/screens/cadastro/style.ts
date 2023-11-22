@@ -39,8 +39,6 @@ export const styles = StyleSheet.create({
       borderRadius: 18,
       marginBottom: 12,
       color: 'black',
-      width: '100%',
-      
-   
+      width: '100%',   
    }
 });

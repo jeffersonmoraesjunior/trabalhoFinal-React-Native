@@ -1,8 +1,8 @@
-// index.tsx
 import React, { useContext } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import { FavoritoContext } from '../../context/favoritoContext';
 import styles from './styles';
+import { ReceitaItem } from '../../components/receitasItem';
 
 export function FavoritosScreen() {
    const { receitaItemList, removeReceitaItemFromFavoritos } = useContext(FavoritoContext);
@@ -15,12 +15,12 @@ export function FavoritosScreen() {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
                <View style={styles.itemContainer}>
+                  <Image source={{ uri: item.image }} style={styles.image} />
                   <Text style={styles.itemTitle}>{item.title}</Text>
-                  <Image source={{ uri: item.image }} style={styles.itemImage} />
                   <TouchableOpacity
                      style={styles.removeButton}
                      onPress={() => removeReceitaItemFromFavoritos(item.id)}>
-                     <Text style={styles.removeButtonText}>Remover</Text>
+                     <Text style={styles.removeButtonText}>Remover Favoritos</Text>
                   </TouchableOpacity>
                </View>
             )}
