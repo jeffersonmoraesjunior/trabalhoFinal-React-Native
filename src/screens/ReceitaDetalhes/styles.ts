@@ -43,6 +43,6 @@ export const styles = StyleSheet.create({
    },
    buttonText: {
       color: '#ffffff',
-      fontSize: 16
+      fontSize: 18
    }
 });

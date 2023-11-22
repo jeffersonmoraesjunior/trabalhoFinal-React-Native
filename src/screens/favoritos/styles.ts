@@ -35,5 +35,18 @@ export default StyleSheet.create({
    },
    removeButtonText: {
       color: 'white'
+   },
+   emptyContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+   },
+   emptyText: {
+      fontSize: 18,
+      color: '#888'
+   },
+   imageChef: {
+      width: 100,
+      height: 100
    }
 });
