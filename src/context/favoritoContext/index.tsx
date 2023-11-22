@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { ReceitaItemProps, ReceitasItemListProps } from '../../components/receitasItem';
+import {  ReceitasItemListProps } from '../../components/receitasItem';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface ContextProps {
@@ -33,29 +33,29 @@ export const FavoritoProvide = ({ children }: ContextProps) => {
       });
    }, []);
 
-   //asyncStorage 
-   const storeData = async (value: ReceitaItemProps[]) => {
-      try {
+   //asyncStorage
+   const storeData = async (value: ReceitasItemListProps[]) => {
+      try {         
          const jsonValue = JSON.stringify(value);
-         await AsyncStorage.setItem('jefferson-junior', jsonValue);
+         await AsyncStorage.setItem('my-key', jsonValue);
       } catch (err) {
-         // colocar erro aqui 
+         // colocar erro aqui
       }
    };
-   
-   //asyncStorage 
+
+   //asyncStorage
    const getData = async () => {
       try {
-         const jsonValue = await AsyncStorage.getItem('jefferson-junior');
+         const jsonValue = await AsyncStorage.getItem('my-key');
          return jsonValue != null ? JSON.parse(jsonValue) : null;
       } catch (err) {
-         // colocar erro aqui 
+         // colocar erro aqui
       }
    };
 
    function addReceitaItemToFavoritos(receitaItem: ReceitasItemListProps) {
       setReceitaItemList([...receitaItemList, receitaItem]);
-      storeData(receitaItemList.map((item) => ({ item })));
+      storeData([...receitaItemList, receitaItem]);
    }
 
    function removeReceitaItemFromFavoritos(id: string) {
@@ -63,7 +63,7 @@ export const FavoritoProvide = ({ children }: ContextProps) => {
          return receitaItem.id !== id;
       });
       setReceitaItemList(newReceitaItemList);
-      storeData(newReceitaItemList.map((item) => ({ item })));
+      storeData(newReceitaItemList);
    }
 
    return (
