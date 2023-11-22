@@ -26,7 +26,7 @@ function Login() {
             const user = userCredential.user;
             alert('Login Efetuado...');
             console.log(user);
-            navigation.navigate('Receitas');
+            navigation.navigate('MyTabs');
          })
          .catch((error) => {
             const errorCode = error.code;
@@ -78,6 +78,7 @@ function Login() {
                         <Text style={styles.registerText}>Ainda não tem conta? Clique aqui.</Text>
                      </View>
                   </TouchableOpacity>
+
                </View>
             </ScrollView>
          </KeyboardAvoidingView>

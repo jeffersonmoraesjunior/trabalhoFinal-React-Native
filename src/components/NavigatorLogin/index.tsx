@@ -4,10 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { AuthProvider } from '../Authenticate/AuthContext';
 import Login from '../../screens/login';
 import Cadastro from '../../screens/cadastro/index';
-import { Receitas } from '../../screens/receitas/';
+
 import { ReceitaDetalhes } from '../../screens/ReceitaDetalhes/';
 import { EsqueciSenha } from '../../screens/EsqueciSenha';
-
+import  MyTabs  from '../bottomTabsNavigator'
 const Stack = createStackNavigator();
 
 const NavigatorLogin = () => {
@@ -28,9 +28,9 @@ const NavigatorLogin = () => {
                <Stack.Screen name=" " component={Login} />
                <Stack.Screen name="Cadastro" component={Cadastro} />
                <Stack.Screen
-                  name="Receitas"
-                  component={Receitas}
-                  options={{ headerShown: false }}
+                  name="MyTabs"
+                  component={MyTabs}
+                 
                />
                <Stack.Screen name="ReceitaDetalhes" component={ReceitaDetalhes} />
                <Stack.Screen name="EsqueciSenha" component={EsqueciSenha} />
