@@ -70,7 +70,6 @@ export default function Cadastro() {
                style={styles.input}
                onChangeText={(text) => setSenha(text)}
                placeholder="Senha"
-               keyboardType="visible-password"
                secureTextEntry
             />
 
@@ -78,7 +77,6 @@ export default function Cadastro() {
                style={styles.input}
                onChangeText={(text) => setConfirmarSenha(text)}
                placeholder="Confirmar senha"
-               keyboardType="visible-password"
                secureTextEntry
             />
 

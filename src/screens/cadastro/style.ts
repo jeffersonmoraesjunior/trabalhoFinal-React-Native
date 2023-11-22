@@ -19,7 +19,8 @@ export const styles = StyleSheet.create({
       width: '100%',
       height: 250,
       resizeMode: 'contain',
-      marginBottom: 10
+      marginTop: '-10%'
+      //marginBottom: 10
    },
    titulo: {
       color: 'white',
@@ -39,6 +40,7 @@ export const styles = StyleSheet.create({
       marginBottom: 12,
       color: 'black',
       width: '100%',
+      
    
    }
 });

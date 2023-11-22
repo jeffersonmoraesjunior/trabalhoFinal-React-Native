@@ -41,8 +41,8 @@ export const Receitas = ({ navigation }) => {
       <View style={styles.container}>
          <StatusBar style="auto" />
 
-         <View style={styles.view1}>
-            <Image source={require('../../assets/logo.png')} style={styles.imagemChefe} />
+         <View style={ styles.view1}>
+            <Image source={require('../../assets/CHEF.png')} style={styles.imagemChefe} />
             <Text style={styles.title}>Livro de Receitas</Text>
          </View>
 

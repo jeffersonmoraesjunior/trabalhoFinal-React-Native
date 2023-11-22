@@ -14,16 +14,19 @@ export const styles = StyleSheet.create({
          height: 3
       },
       borderColor: "#F2780C",
-      borderWidth: 10,
-      borderRadius: 10
+      borderWidth: 2,
+      borderRadius: 30
    },
    cardContent: {
-      padding: 10
+      padding: 10,
+      
+
    },
    image: {
       width: '100%',
       height: 200,
-      resizeMode: 'cover'
+      resizeMode: 'cover',
+      borderRadius: 30
    },
    title: {
       fontSize: 18,

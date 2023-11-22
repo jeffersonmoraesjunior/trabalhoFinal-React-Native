@@ -1,10 +1,12 @@
 // index.tsx
 import React, { useState } from 'react';
-import { Button, TextInput, View } from 'react-native';
+import { TextInput, View, Image } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import styles from './styles';
+import Logo from '../../assets/logo.png';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../../services/firebase/firebase.config';
+import {Button} from '../../components/buttonSubmit/index';
 
 export function EsqueciSenha() {
    const [email, setEmail] = useState('');
@@ -37,7 +39,9 @@ export function EsqueciSenha() {
    };
 
    return (
+      
       <View style={styles.container}>
+          <Image source={Logo} style={styles.logo} />
          <TextInput
             style={styles.input}
             onChangeText={setEmail}
@@ -45,8 +49,11 @@ export function EsqueciSenha() {
             placeholder="Digite seu email"
             keyboardType="email-address"
          />
-         <Button title="Redefinir senha" onPress={handleResetPassword} />
-         <Button title="Voltar" onPress={() => navigation.goBack()} />
+         <Button 
+         title="Redefinir senha" 
+         onPress={handleResetPassword}
+         priority="secondary"
+         />
       </View>
    );
 }

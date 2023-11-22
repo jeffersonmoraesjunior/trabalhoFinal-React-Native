@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { styles } from './styles';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { loginUser } from '../../services/Api/api';
+import { loginUser } from '../../services/api/api';
 import { auth } from '../../services/firebase/firebase.config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 

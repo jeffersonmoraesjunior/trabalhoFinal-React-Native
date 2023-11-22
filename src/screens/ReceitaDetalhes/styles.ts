@@ -26,11 +26,7 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       color: '#333'
    },
-   price: {
-      fontSize: 18,
-      color: '#666',
-      marginTop: 10
-   },
+   
    infoViewContainer: {
       marginBottom: 50
    },

@@ -14,9 +14,9 @@ function MyTabs() {
     <Tab.Navigator
     initialRouteName="Receitas"
       screenOptions={{
-        tabBarStyle: { backgroundColor: '#000', paddingBottom: 2 },
-        tabBarActiveTintColor: 'yellow',
-        tabBarInactiveTintColor: '#aaa',
+        tabBarStyle: { backgroundColor: '#F2C84B', paddingBottom: 2 },
+        tabBarActiveTintColor: '#f706069fa',
+        tabBarInactiveTintColor: '#fff',
         
       }}
     >
@@ -28,7 +28,7 @@ function MyTabs() {
            
              headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="food-turkey" size={24} color={color} />
+            <MaterialCommunityIcons name="food-turkey" size={30} color={color} />
           ),
         }}
       />
@@ -39,7 +39,7 @@ function MyTabs() {
         options={{
             headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="star" size={24} color={color} />
+            <MaterialIcons name="star" size={30} color={color}/>
           ),
         }}
       />

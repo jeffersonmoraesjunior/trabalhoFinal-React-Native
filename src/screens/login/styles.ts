@@ -4,9 +4,10 @@ export const styles = StyleSheet.create({
    container: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
+      //alignItems: 'center',
       backgroundColor: '#F2C84B',
-      paddingTop: 50
+
+      width: '100%'
    },
 
    form: {
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
       width: '100%',
       height: 250,
       resizeMode: 'contain',
-      marginTop: '20%'
+      marginTop: '-10%'
       //marginBottom: 5,
    },
 
@@ -29,7 +30,8 @@ export const styles = StyleSheet.create({
       borderRadius: 18,
       marginBottom: 12,
       color: 'black',
-      width: '100%',
+      width: '80%',
+      alignSelf: 'center'
    
    },
 
@@ -38,7 +40,8 @@ export const styles = StyleSheet.create({
       textAlign: 'right',
       marginBottom: 25,
       fontSize: 15,
-      fontWeight: '500'
+      fontWeight: '500',
+      width: '90%',
    },
 
    loginButton: {
@@ -46,7 +49,9 @@ export const styles = StyleSheet.create({
       borderRadius: 20,
       padding: 15,
       alignItems: 'center',
-      marginBottom: 15
+      marginBottom: 15,
+      width: '80%',
+      alignSelf: 'center'
    },
 
    registerButton: {
@@ -57,7 +62,9 @@ export const styles = StyleSheet.create({
       padding: 15,
       alignItems: 'center',
       marginBottom: 10,
-      marginTop: 5
+      marginTop: 5,
+      width: '80%',
+      alignSelf: 'center'
    },
 
    loginText: {
