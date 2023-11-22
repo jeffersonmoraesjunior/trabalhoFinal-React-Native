@@ -1,34 +1,42 @@
+// styles.ts
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
+export default StyleSheet.create({
    container: {
       flex: 1,
-      paddingHorizontal: 10,
-      backgroundColor: '#f2d541',
-      alignItems: 'center',
-      justifyContent: 'center'
-   },
-   view1: {
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center'
+      padding: 16
    },
    title: {
       fontSize: 24,
       fontWeight: 'bold',
-      marginBottom: 15
+      marginBottom: 16
    },
-   input: {
-      height: 40,
-      borderColor: 'gray',
-      borderWidth: 1,
-      marginBottom: 10,
-      paddingLeft: 8
+   itemContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 8,
+      padding: 16,
+      borderRadius: 8,
+      backgroundColor: '#f0f0f0'
    },
-   imagemChefe: {
-      width: 150,
-      height: 60,
-      marginTop: '10%',
-      resizeMode: 'contain'
+   itemTitle: {
+      flex: 1,
+      fontSize: 16,
+      fontWeight: 'bold'
+   },
+   itemImage: {
+      width: 50,
+      height: 50,
+      borderRadius: 25
+   },
+   removeButton: {
+      marginTop: 8,
+      padding: 8,
+      backgroundColor: '#ff1900',
+      alignItems: 'center'
+   },
+   removeButtonText: {
+      color: '#ffffff',
+      fontSize: 16
    }
 });

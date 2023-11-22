@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, TextInput } from 'react-native';
 import { styles } from './style';
 import Logo from '../../assets/logo.png';
-import { Button } from '../../components/ButtonSubmit';
+import { Button } from '../../components/buttonSubmit';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase/firebase.config';
@@ -57,9 +57,7 @@ export default function Cadastro() {
                placeholder="Nome"
                keyboardType="default"
             />
-      
 
-        
             <TextInput
                style={styles.input}
                onChangeText={(text) => setEmail(text)}
@@ -67,9 +65,7 @@ export default function Cadastro() {
                keyboardType="email-address"
                autoComplete="email"
             />
-       
 
-       
             <TextInput
                style={styles.input}
                onChangeText={(text) => setSenha(text)}
@@ -77,9 +73,7 @@ export default function Cadastro() {
                keyboardType="visible-password"
                secureTextEntry
             />
-       
 
-   
             <TextInput
                style={styles.input}
                onChangeText={(text) => setConfirmarSenha(text)}
@@ -87,9 +81,8 @@ export default function Cadastro() {
                keyboardType="visible-password"
                secureTextEntry
             />
-         
 
-         <Button title="Cadastrar" onPress={handleRegister}></Button>
+            <Button title="Cadastrar" onPress={handleRegister}></Button>
          </View>
       </View>
    );

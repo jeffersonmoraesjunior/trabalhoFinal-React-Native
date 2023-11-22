@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Receitas } from '../../screens/receitas';
-import { Favoritos } from '../../screens/favoritos';
+import { FavoritosScreen } from '../../screens/favoritos';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import Login from '../../screens/login';
 
@@ -34,8 +34,8 @@ function MyTabs() {
       />
 
 <Tab.Screen
-        name="Favoritos"
-        component={Favoritos}
+        name="FavoritosScreen"
+        component={FavoritosScreen}
         options={{
             headerShown: false,
           tabBarIcon: ({ color, size }) => (

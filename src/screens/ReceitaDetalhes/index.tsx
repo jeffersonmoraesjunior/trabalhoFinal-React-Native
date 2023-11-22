@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, Image, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
-import { getReceitaItemDetails } from '../../services/Api/apiReceitas';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../services/firebase/firebase.config';
+import { getReceitaItemDetails } from '../../services/api/apiReceitas';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { FavoritoContext } from '../../context/favoritoContext';
 
 export const ReceitaDetalhes = ({ route }) => {
    const navigation = useNavigation<NavigationProp<any>>();
    const { id } = route.params;
    const [isLoading, setIsLoading] = useState(true);
    const [receita, setReceita] = useState(null);
+
+   const { addReceitaItemToFavoritos } = useContext(FavoritoContext);
 
    useEffect(() => {
       getReceitaItemDetails(id)
@@ -27,26 +28,18 @@ export const ReceitaDetalhes = ({ route }) => {
       return <ActivityIndicator size="large" color="#ff1900" />;
    }
 
-   function logout() {
-      signOut(auth).then(() => {
-         alert('Até a próxima!');
-         navigation.navigate(' ');
-      });
-   }
-
    return (
       <View style={styles.container}>
-         <View>
-            <TouchableOpacity onPress={logout}>
-               <Text>Sair</Text>
-            </TouchableOpacity>
-         </View>
          <Image source={{ uri: receita.image }} style={styles.image} />
          <ScrollView style={styles.infoContainer}>
             <View style={styles.infoViewContainer}>
                <Text style={styles.title}>{receita.title}</Text>
                <Text style={styles.information}>{receita.instructions}</Text>
-               <Text style={styles.price}>Price per serving: {receita.pricePerServing}</Text>
+               <TouchableOpacity
+                  style={styles.favoritoButton}
+                  onPress={() => addReceitaItemToFavoritos(receita)}>
+                  <Text style={styles.buttonText}>Adicionar aos favoritos</Text>
+               </TouchableOpacity>
             </View>
          </ScrollView>
       </View>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
-import { ReceitaItem, ReceitasItemListProps } from '../../components/ReceitasItem';
-import { getReceitaItemList } from '../../services/Api/apiReceitas';
+import { ReceitaItem, ReceitasItemListProps } from '../../components/receitasItem';
+import { getReceitaItemList } from '../../services/api/apiReceitas';
 import { StatusBar } from 'expo-status-bar';
 import { auth } from '../../services/firebase/firebase.config';
 
@@ -66,4 +66,3 @@ export const Receitas = ({ navigation }) => {
       </View>
    );
 };
-

@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
       height: 200
    },
    infoContainer: {
+      flex: 1,
       padding: 20,
       backgroundColor: '#fff',
       borderTopLeftRadius: 40,
@@ -32,5 +33,20 @@ export const styles = StyleSheet.create({
    },
    infoViewContainer: {
       marginBottom: 50
+   },
+   favoritoButton: {
+      top: 20,
+      bottom: 0,
+      width: '80%',
+      padding: 16,
+      backgroundColor: '#ff1900',
+      alignItems: 'center',
+      borderRadius: 15,
+      alignSelf: 'center',
+      marginBottom: 20
+   },
+   buttonText: {
+      color: '#ffffff',
+      fontSize: 16
    }
 });
