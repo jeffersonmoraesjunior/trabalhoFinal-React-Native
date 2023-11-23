@@ -1,16 +1,33 @@
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import NavigatorLogin from './src/components/navigatorLogin/index';
 import { AuthProvider } from './src/components/authenticate/AuthContext';
 import { FavoritoProvide } from './src/context/favoritoContext';
+import Splash from './src/screens/splash/index';
 
-export default function App() {
+const App = () => {
+   const [isSplashVisible, setIsSplashVisible] = useState(true);
+
+   useEffect(() => {
+      setTimeout(() => {
+         setIsSplashVisible(false);
+      }, 2800);
+   }, []);
+
+   if (isSplashVisible) {
+      return <Splash navigation={{ replace: () => setIsSplashVisible(false) }} />;
+   }
+
    return (
       <AuthProvider>
          <FavoritoProvide>
-            <StatusBar style="auto" />
-            <NavigatorLogin />
+            <>
+               <StatusBar style="auto" />
+               <NavigatorLogin />
+            </>
          </FavoritoProvide>
       </AuthProvider>
    );
-}
+};
+
+export default App;
