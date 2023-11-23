@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import {  ReceitasItemListProps } from '../../components/receitasItem';
+import { ReceitaItemProps, ReceitasItemListProps } from '../../components/receitasItem';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface ContextProps {
@@ -35,9 +35,9 @@ export const FavoritoProvide = ({ children }: ContextProps) => {
 
    //asyncStorage
    const storeData = async (value: ReceitasItemListProps[]) => {
-      try {         
+      try {
          const jsonValue = JSON.stringify(value);
-         await AsyncStorage.setItem('my-key', jsonValue);
+         await AsyncStorage.setItem('jefferson-junior', jsonValue);
       } catch (err) {
          // colocar erro aqui
       }
@@ -46,7 +46,7 @@ export const FavoritoProvide = ({ children }: ContextProps) => {
    //asyncStorage
    const getData = async () => {
       try {
-         const jsonValue = await AsyncStorage.getItem('my-key');
+         const jsonValue = await AsyncStorage.getItem('jefferson-junior');
          return jsonValue != null ? JSON.parse(jsonValue) : null;
       } catch (err) {
          // colocar erro aqui

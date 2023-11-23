@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { ReceitasItemListProps } from '../../components/receitasItem/index';
 
-const apiKey = '59ee7cce3532466bac597219d24d819f';
+const apiKey = '16da7df46a7c42e49b04d54d2fc69efa';
 
 {
    /* 

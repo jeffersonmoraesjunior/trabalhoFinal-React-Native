@@ -11,19 +11,17 @@ export const styles = StyleSheet.create({
    view1: {
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
-      //alignSelf: 'flex-end',
+      justifyContent: 'center'
    },
    title: {
       fontSize: 24,
       color: 'red',
       fontWeight: 'bold',
-      marginBottom: 15,
-      marginTop: '-15%',
+      marginTop: 30,
+      textAlign: 'center'
    },
    input: {
       height: 40,
-      //borderColor: 'gray',
       borderWidth: 1,
       marginBottom: 10,
       paddingLeft: 8
@@ -34,9 +32,5 @@ export const styles = StyleSheet.create({
       marginTop: '-34%',
       resizeMode: 'contain',
       marginRight: '-35%'
-      //alignSelf: 'flex-end',
-      //marginRight: '5%',
-      //paddingHorizontal: '20%'
-       
    }
 });

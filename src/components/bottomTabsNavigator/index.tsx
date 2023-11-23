@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Receitas } from '../../screens/receitas';
-import { FavoritosScreen } from '../../screens/favoritos';
+import { Favoritos } from '../../screens/favoritos';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -10,9 +10,11 @@ function MyTabs() {
       <Tab.Navigator
          initialRouteName="Receitas"
          screenOptions={{
+            tabBarLabelStyle: { fontSize: 15 },
             tabBarStyle: { backgroundColor: '#F2C84B', paddingBottom: 2 },
             tabBarActiveTintColor: '#f70606',
-            tabBarInactiveTintColor: '#fff'
+            tabBarInactiveTintColor: '#fff',
+            
          }}>
          <Tab.Screen
             name="Receitas"
@@ -26,8 +28,8 @@ function MyTabs() {
          />
 
          <Tab.Screen
-            name="FavoritosScreen"
-            component={FavoritosScreen}
+            name="Favoritos"
+            component={Favoritos}
             options={{
                headerShown: false,
                tabBarIcon: ({ color, size }) => (

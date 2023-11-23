@@ -4,7 +4,7 @@ import { FavoritoContext } from '../../context/favoritoContext';
 import styles from './styles';
 import { ReceitaItem } from '../../components/receitasItem';
 
-export function FavoritosScreen() {
+export function Favoritos() {
    const { receitaItemList, removeReceitaItemFromFavoritos } = useContext(FavoritoContext);
 
    if (receitaItemList.length === 0) {

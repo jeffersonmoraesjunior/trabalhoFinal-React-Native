@@ -8,7 +8,7 @@ import Cadastro from '../../screens/cadastro/index';
 import { Receitas } from '../../screens/receitas';
 import { ReceitaDetalhes } from '../../screens/receitaDetalhes';
 import { EsqueciSenha } from '../../screens/esqueciSenha';
-import { FavoritosScreen } from '../../screens/favoritos';
+import { Favoritos } from '../../screens/favoritos';
 
 import MyTabs from '../bottomTabsNavigator';
 const Stack = createStackNavigator();
@@ -37,8 +37,8 @@ const NavigatorLogin = () => {
                      headerTitle: '',
                      headerRight: () => (
                         <Image
-                           source={require('../../assets/MENU.png')}
-                           style={{ width: '90%', height: 100, marginRight: -25, marginTop: 30 }}
+                           source={require('../../assets/logo.png')}
+                           style={{ width: 90, height: 90, marginRight: 20 }}
                         />
                      ),
 
@@ -54,7 +54,7 @@ const NavigatorLogin = () => {
 
                <Stack.Screen name="ReceitaDetalhes" component={ReceitaDetalhes} />
                <Stack.Screen name="EsqueciSenha" component={EsqueciSenha} />
-               <Stack.Screen name="FavoritosScreen" component={FavoritosScreen} />
+               <Stack.Screen name="Favoritos" component={Favoritos} />
             </Stack.Navigator>
          </AuthProvider>
       </NavigationContainer>

@@ -1,4 +1,3 @@
-// styles.ts
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -7,7 +6,9 @@ export default StyleSheet.create({
       backgroundColor: '#F5FCFF'
    },
    title: {
-      fontSize: 20,
+      color: 'red',
+      fontSize: 24,
+      fontWeight: 'bold',
       textAlign: 'center',
       margin: 10
    },
@@ -39,10 +40,12 @@ export default StyleSheet.create({
    emptyContainer: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      paddingHorizontal: 40
    },
    emptyText: {
-      fontSize: 18,
+      fontSize: 24,
+      textAlign: 'center',
       color: '#888'
    },
    imageChef: {

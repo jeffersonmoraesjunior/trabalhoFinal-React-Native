@@ -7,11 +7,11 @@ import {
    TouchableOpacity,
    View,
    Image,
-   Text
+   Text,
+   Alert
 } from 'react-native';
 import { styles } from './styles';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { loginUser } from '../../services/api/api';
 import { auth } from '../../services/firebase/firebase.config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -24,8 +24,7 @@ function Login() {
       signInWithEmailAndPassword(auth, userMail, userPass)
          .then((userCredential) => {
             const user = userCredential.user;
-            alert('Login Efetuado...');
-            console.log(user);
+            Alert.alert('Seja Bem Vindo', 'Aproveite nossas receitas', [{ text: 'OK' }]);
             navigation.navigate('MyTabs');
          })
          .catch((error) => {
@@ -76,7 +75,6 @@ function Login() {
                         <Text style={styles.registerText}>Ainda não tem conta? Clique aqui.</Text>
                      </View>
                   </TouchableOpacity>
-
                </View>
             </ScrollView>
          </KeyboardAvoidingView>
