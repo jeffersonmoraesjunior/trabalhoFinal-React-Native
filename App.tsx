@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import NavigatorLogin from './src/components/navigatorLogin/index';
+import NavigatorLogin from './src/routes/navigatorLogin/index';
 import { AuthProvider } from './src/components/authenticate/AuthContext';
 import { FavoritoProvide } from './src/context/favoritoContext';
 import Splash from './src/screens/splash/index';

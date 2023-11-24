@@ -19,20 +19,23 @@ export default StyleSheet.create({
    itemContainer: {
       flex: 1,
       margin: 10,
-      justifyContent: 'space-between',
-      borderBottomColor: '#ccc',
-      borderBottomWidth: 1,
-      paddingBottom: 10
+      justifyContent: 'space-between',      
+      borderColor: '#ccc',
+      borderWidth: 1,
+      paddingBottom: 10,
    },
    itemTitle: {
       fontSize: 18,
+      marginTop: 5,
+      marginLeft: 7,
       marginBottom: 5
    },
    removeButton: {
       alignSelf: 'flex-end',
+      marginRight: 5,
       padding: 10,
-      backgroundColor: 'red',
-      borderRadius: 5
+      backgroundColor: '#ff0000',
+      borderRadius: 7
    },
    removeButtonText: {
       color: 'white'

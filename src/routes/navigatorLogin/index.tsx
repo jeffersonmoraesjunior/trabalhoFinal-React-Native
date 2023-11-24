@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { AuthProvider } from '../authenticate/AuthContext';
+import { AuthProvider } from '../../components/authenticate/AuthContext';
 import Login from '../../screens/login';
 import Cadastro from '../../screens/cadastro/index';
 import { Receitas } from '../../screens/receitas';

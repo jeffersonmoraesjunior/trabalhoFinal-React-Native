@@ -6,8 +6,8 @@ const apiKey = '16da7df46a7c42e49b04d54d2fc69efa';
 {
    /* 
 OUTRAS API:
-639c4554bc084efb9be842975a919a83
-16da7df46a7c42e49b04d54d2fc69efa
+c258de42b2cc470283cb1565168de7e0
+04a499e9de144f359f241b3f37b72111
 */
 }
 
@@ -25,7 +25,7 @@ interface getReceitasItemListResponse {
 }
 
 export function getReceitaItemList(): Promise<AxiosResponse<getReceitasItemListResponse, any>> {
-   const response = api.get(`?apiKey=${apiKey}&query=`);
+   const response = api.get(`?apiKey=${apiKey}&sortDirection=asc`);
    return response;
 }
 
